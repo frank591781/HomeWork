@@ -1,4 +1,4 @@
-# CSHomework
+# CSIE Homework
 ## My homework
 
 This is my first JavaScript.
