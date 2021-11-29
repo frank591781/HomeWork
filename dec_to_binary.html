@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homeworkwillnotlateagain</title>
+</head>
+<body>
+    <h1>作業再遲交我就不配做人</h1>
+    <h2>請輸入一個正整數</h2>
+    <input id="num">       <!--輸入的值-->
+    <br><br/>                          <!--換行-->
+    <button type="button" onclick="dectobin();">我是孤兒123</button>   <!--按鈕-->
+    <script>
+        function dectobin() 
+        {
+            let input = document.getElementById("num").value;
+            let array=Array(100);
+            let i =0;
+            while(input/2>0)
+            {
+                array[i]=input%2;
+                input=parseInt(input/2);  //轉換為整數型態parseInt(number)
+                i++;
+            }
+            /*
+            在陣列的每個元素中插入x拼接陣列轉換為字串  Array.join('x')
+            把Array反轉 Array.reserve()                            
+            */
+            let a1 = array.reverse().join('');
+            alert(a1);                          
+        }
+    </script>
+</body>
+</html>

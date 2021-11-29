@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1006035</title>
+</head>
+<script>
+    function DisplayInput() {
+            var nWNumber = document.getElementById("wnum").value;
+            alert(nWNumber)
+        }
+
+        function isEven(num) {
+            if ( num % 2 == 0)
+                return true;
+            else
+                return false;
+        }
+
+    function onBtnClkSubmit()
+    {
+        let in123 = document.getElementById("wnum").value;
+        var X=isEven(in123);
+        if(X) 
+        {
+            document.getElementById("result").innerHTML = in123+"為偶數";
+        }
+        else
+        {
+            document.getElementById("result").innerHTML = in123+"為奇數"
+        }
+    } 
+</script>
+<body>
+    <label for="wnum">Please input a whole number </label>
+    <input type="text" id="wnum" name="wnum"> <br><br>
+    <button type="button" onclick="onBtnClkSubmit();">Submit</button>
+    <p id="result">display results here...</p>
+</body>
+</html>
