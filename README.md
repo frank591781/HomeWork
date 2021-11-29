@@ -1,3 +1,9 @@
-# HomeWork
+# CSHomework
 My homework
-ffffffff
+
+This is my first JavaScript.
+- odd.html
+- dectobin
+
+[odd.html]()
+[dectobin]()
