@@ -1,41 +1,44 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-using namespace std; 
+using namespace std;
 
-bool wateridiot(int x,int y)  //降冪function
+bool up(int x,int y)
 {
     return x>y;
 }
 
 int main()
 {
-    int n,i,j,cnt;
-    vector<int> a;
-    vector<int> a_cnt;
+    int n,plus;
+    vector<int> set,ans1,ans2;
     //input
-    while(cin >> n) 
+    while(cin >> n)
     {
-        a.push_back(n); //動態陣列
+        set.push_back(n);
     }
-    //sort
-    sort(a.begin(),a.end(),wateridiot);
-    for(i=0;i<a.size();i++)
+    //sort 1 descending power
+    sort(set.begin(),set.end(),up);
+    // sort 2 
+    int cal =1;
+    for(int i =0;i<set.size();i++)
     {
-        cnt=1;
-        for(j=i+1;j<a.size();j++)
+        if(set[i]==set[i+1])
         {
-            if(a[i]==a[j])
-            {
-                cnt++;
-            }
+            cal++;
+            continue; //pass loop
         }
-        a_cnt.push_back(cnt);
+        else if(set[i]!=set[i+1])
+        {
+            ans1.push_back(set[i]);
+            ans2.push_back(cal);
+            cal=1;
+        }
     }
-    //output
-    for(i=0;i<a.size();i++)
+    //output test
+    for(int i=0;i<ans1.size();i++)
     {
-        cout << a[i]<<" "<<a_cnt[i]<<endl;
+        cout << ans1[i] << " " << ans2[i] <<endl;
     }
     return 0;
 }
