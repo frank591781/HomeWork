@@ -32,11 +32,13 @@ int main()
 {
     int n;
     vector<string> output;  
-    cin >> n;          //輸入幾n bit
-    output=gray_code(n);
-    for(int i =0;i<output.size();i++)
+    while(cin >> n)
     {
-        cout << output[i] << endl;
+        output=gray_code(n);
+        for(int i =0;i<output.size();i++)
+        {
+            cout << output[i] << endl;
+        }
     }
     return 0;
 }
