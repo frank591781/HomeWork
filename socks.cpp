@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	int n,m; 
-	cin >> n;
+	cin >> n; //n type for.1 depend on n
 	vector<int> tmp;
 	vector<string> set;
 	for (int i = 0; i < n; i++)
@@ -28,9 +28,26 @@ int main()
 			{
 				if (set[a] == set[b])
 				{
-					swap(set[a])
+					set[a]="0";
+                    set[b]="0";
 				}
 			}
 		}
-	}
+        int counter =0;
+        for(int i =0;i<set.size();i++)
+        {
+            if(set[i]!="0")
+            {
+                counter++;
+            }
+        }
+        set.clear();
+        cout << counter << endl;
+        // for(int i=0;i<set.size();i++)
+        // {
+        //     cout << set[i] << endl;
+        // }
+        // set.clear();
+    }
+    return 0;
 }
