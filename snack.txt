@@ -1,0 +1,131 @@
+#include <iostream>
+#include <conio.h>
+#include <windows.h>
+#include <ctime>
+using namespace std;
+
+
+
+
+class Frame //畫邊框
+{
+public:
+	void gotoScnXY(int x,int y) //游標到螢幕的x,y位置
+	{ 
+		 COORD c={x,y}; //COORD 二維座標類別 , c為座標物件 x,y為座標值
+		 SetConsoleCursorPosition (GetStdHandle (STD_OUTPUT_HANDLE),c); //SetConsoleCursorPosition 設定游標所在位置,GetStdHandle (STD_OUTPUT_HANDLE)取得螢幕控制項
+	}
+
+	Frame(int row=16,int column=16) 
+	{
+		int i,j;
+	    clrscr();
+		for(i=0;i<row;i++)
+		{
+		  for(j=0;j<column;j++)
+			if(i==0||i==row-1||j==0||j==column-1)
+			  cout<<"█";
+			else
+			  cout<<"  ";
+		  cout<<endl;
+		}
+
+	}
+	void clrscr()    //清除畫面
+	{    
+		gotoScnXY(0, 0);    
+		for (int i=0;i<=2000;i++)
+			cout << " ";
+		gotoScnXY(0, 0);    
+
+	}
+
+};
+
+	void gotoxy(int x,int y) //游標到框框的x,y位置
+	{ 
+	 COORD c={2*x-2,y-1};
+		SetConsoleCursorPosition (GetStdHandle (STD_OUTPUT_HANDLE),c); 
+	}
+
+class snake
+{
+public:
+
+	snake()
+	{
+		dir = 72;
+		x=12;
+		y=12;
+		gotoxy(x,y);
+		cout<<"█";
+	}
+
+	void setdir()
+	{
+		int key=_getch();  //取得方向鍵
+		if(key==224)
+		{
+		  dir=_getch();//取得方向鍵的方向
+		}
+	}
+
+void move()
+	{
+		Sleep(100);
+		  switch(dir)
+		  {
+			case 72://上
+				if (y-1 <=1)
+					break;
+				gotoxy(x,y);
+				cout << "  ";
+				y=y-1;
+				gotoxy(x,y);
+				cout<<"█";
+				break;
+			case 80://下
+				if (y+1 >=24)
+					break;
+				gotoxy(x,y);
+				cout << "  ";
+				y=y+1;
+				gotoxy(x,y);
+				cout<<"█";
+				break;
+			case 75://左
+				if (x-1 <=1)
+					break;
+				gotoxy(x,y);
+				cout << "  ";
+				x=x-1;
+				gotoxy(x,y);
+				cout<<"█";
+				break;
+			case 77://右
+				if (x+1 >=24)
+					break;
+				gotoxy(x,y);
+				cout << "  ";
+				x=x+1;
+				gotoxy(x,y);
+				cout<<"█";
+				break;
+			}
+	}
+private:
+	int dir,x,y;
+};
+
+int main()
+{
+	Frame f1(24,24);
+	snake s1;
+	for(;;)//無窮迴圈
+	{
+			if(_kbhit())
+				s1.setdir();
+			s1.move();
+	}
+    return 0;
+}
